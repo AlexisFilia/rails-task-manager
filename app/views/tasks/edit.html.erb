@@ -1,0 +1,13 @@
+<h1>Do you want to update this task?</h1>
+
+<div>
+  <%= form_for @task do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :details %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<%= link_to "<<< back", tasks_path %>
+
+

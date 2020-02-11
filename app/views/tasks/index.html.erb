@@ -1,0 +1,28 @@
+<h1>My tasks</h1>
+
+  <div>
+    <%= link_to "New", "tasks/new" %>
+  </div>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <div class="task" style="display: flex">
+      <div>
+        <input type="checkbox" name="completed" <%= task[:completed] ? "checked" : "" %> >
+      </div>
+      <div> <%= link_to task[:title], task_path(task[:id])%> </div>
+      <div> <%= task[:details] %> </div>
+      <div>
+
+        <div>
+          <%= link_to "Modify", tasks_edit_path(task) %>
+        </div>
+        <div>
+          <%= link_to "Delete", tasks_delete_path(task), :method => 'delete'%>
+        </div>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
